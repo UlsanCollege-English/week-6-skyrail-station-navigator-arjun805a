@@ -1,73 +1,51 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/mHMwxQwH)
-# Weekly Coding #5: Skyrail Station Navigator
+Weekly Coding #5: Skyrail Station Navigator
+Summary
 
-## Summary
-Write 3–6 lines here.
+This program works with binary trees and binary search trees (BST). It performs tree traversals (preorder, inorder, and postorder) to visit nodes in different orders. It also implements BST operations such as searching for a value and inserting a new value. These functions help organize and efficiently access data in a tree structure.
 
-Example questions to answer:
-- What does your program do?
-- What tree tasks did you implement?
-- What BST tasks did you implement?
-
----
-
-## Approach
-- Describe how you handled preorder traversal.
-- Describe how you handled inorder traversal.
-- Describe how you handled postorder traversal.
-- Describe how you handled BST search.
-- Describe how you handled BST insert.
-
----
-
-## Complexity
-
-### `preorder_values`
-- **Time:**
-- **Space:**
-- **Why:**
-
-### `inorder_values`
-- **Time:**
-- **Space:**
-- **Why:**
-
-### `postorder_values`
-- **Time:**
-- **Space:**
-- **Why:**
-
-### `bst_contains`
-- **Time:**
-- **Space:**
-- **Why:**
-
-### `bst_insert`
-- **Time:**
-- **Space:**
-- **Why:**
-
----
-
-## Edge-Case Checklist
-- [ ] Empty tree traversal returns `[]`
-- [ ] Single-node traversal works correctly
-- [ ] `bst_contains` returns `False` for an empty tree
-- [ ] `bst_contains` returns `False` when the target is missing
-- [ ] `bst_insert` creates a root when the tree is empty
-- [ ] `bst_insert` ignores duplicate values
-- [ ] I tested at least one deeper insert case
-
-Add short notes here explaining what your code does for each case.
-
----
-
-## Assistance & Sources
-- **AI used? (Y/N):**
-- **What AI helped with:**
-- **Other sources used:**
-
----
-
-## Test Results
-Paste or summarize your `pytest -q` result here.
+Approach
+Preorder traversal: Visit the current node first, then recursively visit the left subtree, then the right subtree.
+Inorder traversal: Recursively visit the left subtree, then the current node, then the right subtree.
+Postorder traversal: Recursively visit the left subtree, then the right subtree, then the current node.
+BST search: Compare the target value with the current node. If smaller, go left; if larger, go right; if equal, return True.
+BST insert: Recursively find the correct position based on value comparison. Insert a new node if the spot is empty and ignore duplicates.
+Complexity
+preorder_values
+Time: O(n)
+Space: O(h)
+Why: Visits every node once; recursion stack depends on tree height.
+inorder_values
+Time: O(n)
+Space: O(h)
+Why: Traverses all nodes once; recursion depth depends on height.
+postorder_values
+Time: O(n)
+Space: O(h)
+Why: Each node is processed once; recursion stack uses height.
+bst_contains
+Time: O(h)
+Space: O(h)
+Why: Only one path is followed from root to leaf based on comparisons.
+bst_insert
+Time: O(h)
+Space: O(h)
+Why: Traverses one path to insert; recursion stack depends on height.
+Edge-Case Checklist
+ Empty tree traversal returns []
+→ Functions return an empty list when root is None.
+ Single-node traversal works correctly
+→ Returns a list with just that node’s value.
+ bst_contains returns False for an empty tree
+→ Immediately returns False if root is None.
+ bst_contains returns False when the target is missing
+→ Recursion reaches a None node and returns False.
+ bst_insert creates a root when the tree is empty
+→ If root is None, a new node is created.
+ bst_insert ignores duplicate values
+→ If value equals current node, nothing is inserted.
+ I tested at least one deeper insert case
+→ Verified inserting values like 55 or 25 goes to correct position.
+Assistance & Sources
+AI used? (Y/N): Y
+What AI helped with: Understanding traversal logic, recursion, and verifying implementation correctness.
+Other sources used: Class notes and lecture materials.
